@@ -12,6 +12,8 @@
           item = @@item.find{|i| i.name == item_name}
           
           resp.write item.price
+          
+        
         end
         
         resp.finish
