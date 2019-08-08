@@ -11,7 +11,7 @@
           item_price = req.path.split("/items").last
           item = @@items.find{|i| i.price == item_price}
           
-          resp.write item.price
+          resp.write item.name
         else
           resp.write "Route not found"
           resp.status = 404
