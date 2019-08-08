@@ -8,7 +8,7 @@
         
         if req.path.match(/item/)
           
-          items_price = req.path.split("/item").last
+          items_price = req.path.split("/items").last
           item = @@items.find{|i| i.price == items_price}
           
           resp.write items.name
