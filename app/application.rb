@@ -5,12 +5,27 @@
       def call(env)
         resp = Rack::Response.new
         req = Rack::Request.new(env)
+        
+        if req.path.match(/items/)
+          
+          item_
+    
+    
+        class Application
      
-        if req.path=="/item"
-          resp.write "You requested the item"
-        else
-          resp.write "Route not found"
-          resp.status = 404
+      @@songs = [Song.new("Sorry", "Justin Bieber"),
+                Song.new("Hello","Adele")]
+     
+      def call(env)
+        resp = Rack::Response.new
+        req = Rack::Request.new(env)
+     
+        if req.path.match(/songs/)
+     
+          song_title = req.path.split("/songs/").last #turn /songs/Sorry into Sorry
+          song = @@songs.find{|s| s.title == song_title}
+     
+          resp.write song.artist
         end
      
         resp.finish
