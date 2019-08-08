@@ -8,10 +8,21 @@
         
         if req.path.match(/items/)
           
-          items_price = req.path.split("/items").last
-          items = @@items.find{|i| i.price == items_price}
+          items_name = req.path.split("/items").last
+          items = @@items.find{|i| i.name == items_name}
           
-          resp.write items.price
+          resp.write items.name
+          
+          .......
+           if req.path.match(/items/)
+      item_name = req.path.split("/items/").last
+      item = @@items.find{|i| i.name == item_name}
+      if item.nil?
+        resp.write "Item not found"
+        resp.status = 400
+        ........
+          
+          
         else
           resp.write "Route not found"
           resp.status = 404
